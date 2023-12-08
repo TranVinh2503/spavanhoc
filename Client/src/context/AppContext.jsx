@@ -43,7 +43,6 @@ export const AppProvider = ({ children }) => {
       const IdFromToken = localStorage.getItem("access-token");
       const result = getUserFromToken(IdFromToken);
       setID(result?.user_id);
-      console.log(result);
       setUser(result);
     };
     fetchAPI();
