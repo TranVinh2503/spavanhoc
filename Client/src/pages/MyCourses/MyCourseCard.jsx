@@ -4,7 +4,7 @@ import courseImg2 from "../../assests/images/img2.png";
 import courseImg3 from "../../assests/images/img3.png";
 
 const MyCourseCard = (props) => {
-  const { course, infor, cost } = props.item;
+  const { id, course, infor, cost } = props.item;
   const randomCourseImg = () => {
     const imgList = [courseImg1, courseImg2, courseImg3];
     const randomIndex = Math.floor(Math.random() * imgList.length);
@@ -12,6 +12,10 @@ const MyCourseCard = (props) => {
   };
 
   const imgUrl = randomCourseImg();
+
+  const handleAccessCourse = () => {
+    window.location.href = `/my_course/${id}`;
+  };
 
   return (
     <div className="single__course__item">
@@ -37,7 +41,9 @@ const MyCourseCard = (props) => {
           </p>
 
           <p className="enroll d-flex align-items-center gap-1">
-            <button className="btn">Truy Cập</button>
+            <button className="btn" onClick={handleAccessCourse}>
+              Truy Cập
+            </button>
           </p>
         </div>
       </div>
