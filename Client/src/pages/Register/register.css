@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+
+.container-body {
+
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    background: rgba(226, 248, 248, 0.664);
+    border-radius: 5%;
+    
+}
+
+.container > form {
+    width: 70%;
+    border: 1px solid #dfdfdf;
+    padding: 20px;
+    border-radius: 5px;
+    background: #fff;
+}
+label{
+    margin-right: 10px;
+}
+
+input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 25px;
+    border-radius: 15%;
+    
+
+}
+
+pre {
+    width: 70%;
+    color: #fff;
+    font-size: larger;
+}

@@ -1,0 +1,24 @@
+User : 
+1. hs 
+2. gv
+0. admin 
+
+Course: 
+id
+course 
+info 
+cost
+
+Checking_course 
+id
+cid
+hsid
+status: 
+1. accept
+2. deny
+
+Owned_course
+1. id
+2. cid 
+3. user_id_gv
+4. user_id_hs
