@@ -11,19 +11,19 @@ export const AppProvider = ({ children }) => {
   const [courses, SetCourses] = useState([]);
   const [myCourses, SetMyCourses] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:8000/api/all/courses_from_server", {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       SetCourses(data);
-  //     })
-  //     .catch(console.error());
-  // }, []);
+  useEffect(() => {
+    fetch("spavanhoc.fithanu.edu.vn/api/all/courses_from_server", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        SetCourses(data);
+      })
+      .catch(console.error());
+  }, []);
 
   function getUserFromToken(token) {
     try {
@@ -50,7 +50,7 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     if (user && Object.keys(user).length > 0) {
-      fetch("http://localhost:8000/api/my/courses", {
+      fetch("spavanhoc.fithanu.edu.vn/api/my/courses", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

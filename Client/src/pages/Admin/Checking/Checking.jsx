@@ -30,7 +30,7 @@ const Checking = ({ checking_data }) => {
   };
   const handleSubmit = () => {
     for (let index = 0; index < checkingCourse.length; index++) {
-      fetch("http://localhost:8000/api/update/status_checking", {
+      fetch("spavanhoc.fithanu.edu.vn/api/update/status_checking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

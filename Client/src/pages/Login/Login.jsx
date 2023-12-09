@@ -54,7 +54,7 @@ function Login() {
 
   useEffect(() => {
     if (user.user_name !== "" && user.password !== "") {
-      fetch("http://localhost:8000/api/login", {
+      fetch("spavanhoc.fithanu.edu.vn/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
