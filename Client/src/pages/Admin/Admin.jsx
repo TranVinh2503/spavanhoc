@@ -16,7 +16,7 @@ function Admin() {
     
 
     useEffect(() => {
-      fetch("http://localhost:8000/api/all/users", {
+      fetch("spavanhoc.fithanu.edu.vn/api/all/users", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -31,7 +31,7 @@ function Admin() {
     }, []);
 
     useEffect(() => {
-      fetch("http://localhost:8000/api/all/Checking_course", {
+      fetch("spavanhoc.fithanu.edu.vn/api/all/Checking_course", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -46,7 +46,7 @@ function Admin() {
     }, []);
 
     useEffect(() => {
-      fetch("http://localhost:8000/api/all/owned_course", {
+      fetch("spavanhoc.fithanu.edu.vn/api/all/owned_course", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -61,7 +61,7 @@ function Admin() {
     }, []);
 
     useEffect(() => {
-      fetch("http://localhost:8000/api/all/courses_from_server", {
+      fetch("spavanhoc.fithanu.edu.vn/api/all/courses_from_server", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

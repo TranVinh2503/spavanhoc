@@ -13,7 +13,7 @@ const CourseAccess = () => {
   const [files, SetFiles] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/course/${id}`, {
+    fetch(`spavanhoc.fithanu.edu.vn/api/course/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const CourseAccess = () => {
     if (selectedFile) {
       const formData = new FormData();
       formData.append("file", selectedFile);
-      fetch(`http://localhost:8000/api/upload/${id}/${ownedCourse?.id}`, {
+      fetch(`spavanhoc.fithanu.edu.vn/api/upload/${id}/${ownedCourse?.id}`, {
         method: "POST",
         body: formData,
       })
@@ -70,7 +70,7 @@ const CourseAccess = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:8000/api/all/files_owned_course/${ownedCourse?.id}`,
+      `spavanhoc.fithanu.edu.vn/api/all/files_owned_course/${ownedCourse?.id}`,
       {
         method: "GET",
         headers: {
@@ -141,7 +141,7 @@ const CourseAccess = () => {
               {files.map((file) => (
                 <tr key={file.id}>
                   <td>
-                    <a href={`http://localhost:8000/${file.UrlFile}`}>
+                    <a href={`spavanhoc.fithanu.edu.vn/${file.UrlFile}`}>
                       {file.UrlFile.split("/").pop()}
                     </a>
                   </td>

@@ -15,7 +15,7 @@ const OwnedCourse = ({ owned_course }) => {
   };
 
   const handleSubmit = () => {
-    fetch("http://localhost:8000/api/add/owned_course", {
+    fetch("spavanhoc.fithanu.edu.vn/api/add/owned_course", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
