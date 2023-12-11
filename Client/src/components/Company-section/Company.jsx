@@ -1,8 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-
+import "./company-section.css"
 const Company = () => {
   return (
+    <section className="company" >
+      <Container>
     <section>
       <div style={{margin:"20px"}}>
         <Row>

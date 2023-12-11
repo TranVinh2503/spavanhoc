@@ -5,16 +5,16 @@ import "./footer.css";
 
 const footerQuickLinks = [
   {
-    display: "Home",
+    display: "Trang chủ",
     url: "#",
   },
   {
-    display: "About US",
+    display: "Về chúng tôi",
     url: "#",
   },
 
   {
-    display: "Courses",
+    display: "Khoá học",
     url: "#",
   },
 
@@ -26,21 +26,21 @@ const footerQuickLinks = [
 
 const footerInfoLinks = [
   {
-    display: "Privacy Policy",
+    display: "Chính sách riêng tư",
     url: "#",
   },
   {
-    display: "Membership",
-    url: "#",
-  },
-
-  {
-    display: "Purchases Guide",
+    display: "Thành viên",
     url: "#",
   },
 
   {
-    display: "Terms of Service",
+    display: "Hướng dẫn",
+    url: "#",
+  },
+
+  {
+    display: "Dịch vụ",
     url: "#",
   },
 ];
@@ -56,7 +56,7 @@ const Footer = () => {
             </h2>
 
             <div className="follows">
-              <p className="mb-0">Follow us on social media</p>
+              <p className="mb-0">Theo dõi chúng tôi</p>
               <span>
                 {" "}
                 <a href="facebook.com">
@@ -88,7 +88,7 @@ const Footer = () => {
           </Col>
 
           <Col lg="3" md="6" className="mb-4">
-            <h6 className="fw-bold">Explore</h6>
+            <h6 className="fw-bold">Khám phá</h6>
             <ListGroup className="link__list">
               {footerQuickLinks.map((item, index) => (
                 <ListGroupItem key={index} className="border-0 ps-0 link__item">
@@ -100,7 +100,7 @@ const Footer = () => {
           </Col>
 
           <Col lg="3" md="6" className="mb-4">
-            <h6 className="fw-bold">Information</h6>
+            <h6 className="fw-bold">Thông tin</h6>
             <ListGroup className="link__list">
               {footerInfoLinks.map((item, index) => (
                 <ListGroupItem key={index} className="border-0 ps-0 link__item">
@@ -112,11 +112,11 @@ const Footer = () => {
           </Col>
 
           <Col lg="3" md="6">
-            <h6 className="fw-bold">Get in Touch</h6>
+            <h6 className="fw-bold">Liên hệ</h6>
 
-            <p>Address: Sylhet, Bangladesh</p>
-            <p> Phone: +88 0123456789 </p>
-            <p>Email: example@gmail.com</p>
+            <p>Địa chỉ: Hà Nội, </p>
+            <p> số điện thoại: +84 0123456789 </p>
+            <p>Email: spavanhoc@gmail.com</p>
           </Col>
         </Row>
       </Container>

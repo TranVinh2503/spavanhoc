@@ -11,8 +11,11 @@
   text-align: left;
 }
 
-section,
+/* section,
 footer {
+  padding-top: 70px;
+  padding-bottom: 70px;
+} */
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -27,6 +30,7 @@ h6 {
   font-family: "Poppins", sans-serif;
   color: #0a2b1e;
   font-weight: 600;
+  
 }
 
 p {

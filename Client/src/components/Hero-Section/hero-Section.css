@@ -4,12 +4,17 @@
 }
 
 .hero__content {
-  padding-top: 80px;
+  padding-top: 50px;
+  text-align: left;
 }
 .search input {
   border: none;
   outline: none;
   padding: 7px 10%;
+}
+
+.hero {
+  height: 200px;
 }
 
 .search {

@@ -5,6 +5,7 @@ import "./features.css";
 const FeatureData = [
   {
     title: "Gửi bài",
+    desc: "Hãy đăng bài văn của bạn lên (chúng tôi khuyến khích bạn hãy gửi file định dạng .docx hoặc .pdf để có kết quả tốt nhất). Phần còn lại hãy để chúng tôi lo!    ",
     desc: "Hãy đăng bài văn của bạn lên (chúng tôi khuyến khích bạn hãy gửi file định dạng .docx hoặc .pdf để có kết quả tốt nhất). Phần còn lại hãy để chúng tôi lo!",
     icon: "ri-draft-line",
   },
@@ -24,6 +25,8 @@ const FeatureData = [
 
 const Features = () => {
   return (
+    <section className="feature">
+      <Container>
     <section>
       <Container style={{ maxHeight: "350px" }}>
         <Row>
