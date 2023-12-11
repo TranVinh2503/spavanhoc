@@ -7,7 +7,7 @@ import "./about.css";
 
 const About = () => {
   return (
-    <section>
+    <section className="about">
       <Container>
         <Row>
           <Col lg="6" md="6">
@@ -18,11 +18,11 @@ const About = () => {
 
           <Col lg="6" md="6">
             <div className="about__content">
-              <h2>About Us</h2>
+              <h2>Về chúng tôi</h2>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Excepturi cupiditate animi deserunt libero nesciunt corporis
-                explicabo nobis ex quo molestiae!
+              Đội ngũ của chúng tôi vô cùng rộng lớn và có chuyên môn trong lĩnh vực văn học. 
+              Từ những cá nhân đạt giải thưởng các cấp cho tới các giáo viên, 
+              nhà văn có sức ảnh hưởng lớn trong nền văn học Việt Nam. 
               </p>
 
               <div className="about__counter">
@@ -32,33 +32,33 @@ const About = () => {
                       <CountUp start={0} end={25} duration={2} suffix="K" />
                     </span>
 
-                    <p className="counter__title">Completed Projects</p>
+                    <p className="counter__title">bài văn đã được chỉnh sửa</p>
                   </div>
 
                   <div className="single__counter">
                     <span className="counter">
-                      <CountUp start={0} end={12} duration={2} suffix="M" />
+                      <CountUp start={0} end={30} duration={2} suffix="k" />
                     </span>
 
-                    <p className="counter__title">Patient Around World</p>
+                    <p className="counter__title">người tin dùng</p>
                   </div>
                 </div>
 
                 <div className=" d-flex gap-5 align-items-center">
                   <div className="single__counter">
                     <span className="counter">
-                      <CountUp start={0} end={95} duration={2} suffix="M" />
+                      <CountUp start={0} end={1.5} duration={2} suffix="K" />
                     </span>
 
-                    <p className="counter__title">Ideas Raised Funds</p>
+                    <p className="counter__title">thành viên của đội ngũ cố vấn</p>
                   </div>
 
                   <div className="single__counter">
                     <span className="counter">
-                      <CountUp start={0} end={5} duration={2} suffix="K" />
+                      <CountUp start={0} end={2.5} duration={2} suffix="K" />
                     </span>
 
-                    <p className="counter__title">Categories Served</p>
+                    <p className="counter__title">lượt truy cập mỗi tháng</p>
                   </div>
                 </div>
               </div>

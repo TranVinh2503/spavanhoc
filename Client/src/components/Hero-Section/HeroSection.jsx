@@ -6,22 +6,22 @@ import "./hero-Section.css";
 const HeroSection = () => {
   return (
     <section>
-      <Container>
+      <Container className="hero" >
         <Row>
           <Col lg="6" md="6">
             <div className="hero__content">
               <h2 className="mb-4 hero__title">
-                Anytime Anywhere <br /> Learn on your <br /> Suitable Schedule
+                Đừng lười <br /> Tôi xem <br /> Điểm mười 
               </h2>
               <p className="mb-5">
-                Lorem ipsum dolor sit amet consectetur <br /> adipisicing elit.
-                Aut saepe voluptatum earum delectus <br /> deserunt id iste,
-                quas officiis et repellat!
+              Các khóa học bổ trợ kiến thức  <br />kỹ năng cho học sinh theo từng cấp học, <br>
+              </br>giúp học sinh nâng cao năng lực học tập cá nhân,<br />tự tin khẳng định bản thân trong thời đại số
+                
               </p>
             </div>
             <div className="search">
               <input type="text" placeholder="Search" />
-              <button className="btn">Search</button>
+              <button className="btn">Tìm kiếm</button>
             </div>
           </Col>
 

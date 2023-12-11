@@ -9,7 +9,7 @@ import CourseCard from "./CourseCard";
 const coursesData = [
   {
     id: "01",
-    title: "Web Design BootCamp-2022 for Beginners",
+    title: "Loại 1: Nhận xét chung( theo tư duy, diễn đạt, kiến thức)",
     lesson: 12,
     students: 12.5,
     rating: 5.9,
@@ -18,7 +18,7 @@ const coursesData = [
 
   {
     id: "02",
-    title: "Professional Graphics Design, PhotoShop, Adobe XD, Figma",
+    title: "Lẻ một bài: NLXH (15k), NLVH (25k)",
     lesson: 12,
     students: 12.5,
     rating: 5.9,
@@ -27,7 +27,7 @@ const coursesData = [
 
   {
     id: "03",
-    title: "UI/UX BootCamp for Beginners in 2022",
+    title: "Lẻ năm bài: NLXH(75k), NLVH(125k), combo 5 NLXH và 5 NLVH (180k)",
     lesson: 12,
     students: 12.5,
     rating: 5.9,
@@ -43,11 +43,11 @@ const Courses = () => {
           <Col lg="12" className="mb-5">
             <div className="course__top d-flex justify-content-between align-items-center">
               <div className="course__top__left w-50">
-                <h2>Our Popular Courses</h2>
+                <h2>Khoá học của chúng tôi</h2>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-                  consequatur libero quod voluptatibus ullam quia quas, vitae
-                  voluptatem recusandae reprehenderit!
+                Giải pháp ôn luyện dành cho học sinh lớp 12
+                Bao gồm 4 giai đoạn ôn luyện nhằm trang bị toàn diện kiến thức 
+                kĩ năng cần thiết cho học sinh tham gia kì thi tuyển sinh đại học
                 </p>
               </div>
 

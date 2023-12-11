@@ -19,4 +19,11 @@
     color: #0a2b1e;
     font-weight: 500;
   }
-  
+
+.fw-bold {
+  padding-top: 16px;
+}
+
+.ps-0 {
+  padding-left: 16px;
+}

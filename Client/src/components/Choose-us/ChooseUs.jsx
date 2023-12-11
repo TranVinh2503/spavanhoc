@@ -9,25 +9,10 @@ import ReactPlayer from "react-player";
 const ChooseUs = () => {
   const [showVideo, setShowVideo] = useState(false);
   return (
-    <section>
+    <section className="chooseUs">
       <Container>
         <Row>
-          <Col lg="6" md="6">
-            <div className="choose__content">
-              <h2>Why Choose Us</h2>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Incidunt mollitia nostrum harum eos praesentium odit a sed quod
-                aut fugit. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Reprehenderit omnis, culpa eligendi inventore perspiciatis
-                minus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolores cupiditate facilis provident quidem accusamus impedit
-                tenetur laboriosam debitis nisi eius!
-              </p>
-            </div>
-          </Col>
-
-          <Col lg="6" md="6">
+        <Col lg="6" md="6">
             <div className="choose__img">
               {showVideo ? (
                 <ReactPlayer
@@ -50,6 +35,19 @@ const ChooseUs = () => {
               )}
             </div>
           </Col>
+
+          <Col lg="6" md="6">
+            <div className="choose__content">
+              <h2>Tại sao bạn nên chọn chúng tôi?</h2>
+              <p>
+              Lần đầu tiên xuất hiện một nền tảng chấm chữa và đưa ra những chỉnh sửa chi tiết cho những bài văn,
+               chúng tôi tự hào mang đến những trải nghiệm chưa từng có nhưng cũng vô cùng chuyên nghiệp. 
+               Bài văn của bạn sẽ được chấm bởi những chuyên gia văn học có tiếng với chất lượng không thể phủ nhận
+              </p>
+            </div>
+          </Col>
+
+          
         </Row>
       </Container>
     </section>

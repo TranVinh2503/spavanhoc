@@ -10,11 +10,11 @@
   box-sizing: border-box;
 }
 
-section,
+/* section,
 footer {
   padding-top: 70px;
   padding-bottom: 70px;
-}
+} */
 h1,
 h2,
 h3,
@@ -26,6 +26,7 @@ h6 {
   font-family: "Poppins", sans-serif;
   color: #0a2b1e;
   font-weight: 600;
+  
 }
 
 p {
