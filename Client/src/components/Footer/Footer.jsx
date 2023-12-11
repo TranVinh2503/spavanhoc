@@ -48,11 +48,11 @@ const footerInfoLinks = [
 const Footer = () => {
   return (
     <footer className="footer">
-      <Container>
+      <Container style={{maxHeight:"200px"}}>
         <Row>
           <Col lg="3" md="6" className="mb-4">
             <h2 className=" d-flex align-items-center gap-1">
-              <i class="ri-pantone-line"></i> Learners.
+              <i class="ri-pantone-line"></i> SpaVanHoc.
             </h2>
 
             <div className="follows">

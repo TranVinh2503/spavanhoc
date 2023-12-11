@@ -6,7 +6,6 @@ const multer = require("multer");
 
 // const verifyToken = require("./middleware/auth");
 // const bcrypt = require("bcrypt");
-// const http = require("http");
 // let formidable = require("formidable");
 // let fs = require("fs");
 
@@ -39,6 +38,10 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+app.get("/api/hello", (req, res) => {
+  res.send("Hello World!");
+});
 
 app.get("/api/annoucements", (req, res) => {
   db.all(`select * from Announcement`, (err, announcements) => {
@@ -272,6 +275,32 @@ app.post("/api/upload/:id/:id_owned", upload.single("file"), (req, res) => {
     }
   );
 });
+
+app.post(
+  "/api/upload_fixed/:id/:id_owned",
+  upload.single("file"),
+  (req, res) => {
+    const idOwned = req.params.id_owned;
+    const file = req.file;
+    if (!file) {
+      res.status(400).send("Vui lòng tải lên một tệp.");
+      return;
+    }
+    const urlFile = `/files/${file.filename}`;
+    db.run(
+      `UPDATE File_owned_course SET UrlFile_fixed = ? WHERE id_owned_course = ?;
+      `,
+      [urlFile, idOwned],
+      (err) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        res.json(urlFile);
+      }
+    );
+  }
+);
 
 app.get("/api/all/files_owned_course/:id_ownedCourse", (req, res) => {
   db.all(

@@ -10,9 +10,10 @@ export const AppProvider = ({ children }) => {
 
   const [courses, SetCourses] = useState([]);
   const [myCourses, SetMyCourses] = useState([]);
+  const domainName = "localhost:8000"
 
   useEffect(() => {
-    fetch("spavanhoc.fithanu.edu.vn/api/all/courses_from_server", {
+    fetch(`http://${domainName}/api/all/courses_from_server`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +51,7 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     if (user && Object.keys(user).length > 0) {
-      fetch("spavanhoc.fithanu.edu.vn/api/my/courses", {
+      fetch(`http://${domainName}/api/my/courses`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,7 +70,7 @@ export const AppProvider = ({ children }) => {
   
 
   return (
-    <AppContext.Provider value={{ user, courses, myCourses }}>
+    <AppContext.Provider value={{ user, courses, myCourses,domainName }}>
       {children}
     </AppContext.Provider>
   );
