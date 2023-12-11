@@ -22,3 +22,27 @@ Owned_course
 2. cid 
 3. user_id_gv
 4. user_id_hs
+
+
+
+Upload File 
+
+hs -> upload file -> save file server
+gv -> access course -> show file -> upload file after checked 
+
+add table : File_owned_course
+id
+id_owned_course
+Url: file_upload 
+
+
+
+
+
+
+
+
+
+
+
+

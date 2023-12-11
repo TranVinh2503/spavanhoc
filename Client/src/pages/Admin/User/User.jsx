@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./user.css";
+import { AppContext } from "../../../context/AppContext";
 const User = ({ users }) => {
+  const {domainName} = useContext(AppContext)
   const [teacher, setTeacher] = useState();
   const [readyAdd, SetReadyAdd] = useState(false);
 
@@ -28,7 +30,7 @@ const User = ({ users }) => {
       teacher?.password !== "" &&
       (teacher?.role === 1 || teacher?.role === 2)
     ) {
-      fetch("http://localhost:8000/api/register", {
+      fetch(`http://${domainName}//api/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

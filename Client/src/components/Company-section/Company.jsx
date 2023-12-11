@@ -5,6 +5,8 @@ const Company = () => {
   return (
     <section className="company" >
       <Container>
+    <section>
+      <div style={{margin:"20px"}}>
         <Row>
           <Col lg="2" md="3" sm="4" xs="6">
             <h3 className=" d-flex align-items-center gap-1">
@@ -45,7 +47,7 @@ const Company = () => {
             </h2>
           </Col>
         </Row>
-      </Container>
+      </div>
     </section>
   );
 };

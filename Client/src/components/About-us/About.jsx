@@ -9,6 +9,8 @@ const About = () => {
   return (
     <section className="about">
       <Container>
+    <section>
+      <Container style={{ maxHeight: "450px" }}>
         <Row>
           <Col lg="6" md="6">
             <div className="about__img">
@@ -23,6 +25,12 @@ const About = () => {
               Đội ngũ của chúng tôi vô cùng rộng lớn và có chuyên môn trong lĩnh vực văn học. 
               Từ những cá nhân đạt giải thưởng các cấp cho tới các giáo viên, 
               nhà văn có sức ảnh hưởng lớn trong nền văn học Việt Nam. 
+              <h2>Về chúng tôi ?</h2>
+              <p>
+                Đội ngũ của chúng tôi vô cùng rộng lớn và có chuyên môn trong
+                lĩnh vực văn học. Từ những cá nhân đạt giải thưởng các cấp cho
+                tới các giáo viên, nhà văn có sức ảnh hưởng lớn trong nền văn
+                học Việt Nam.
               </p>
 
               <div className="about__counter">
@@ -38,6 +46,7 @@ const About = () => {
                   <div className="single__counter">
                     <span className="counter">
                       <CountUp start={0} end={30} duration={2} suffix="k" />
+                      <CountUp start={0} end={30} duration={2} suffix="K" />
                     </span>
 
                     <p className="counter__title">người tin dùng</p>
@@ -51,6 +60,10 @@ const About = () => {
                     </span>
 
                     <p className="counter__title">thành viên của đội ngũ cố vấn</p>
+                      <CountUp start={0} end={90} duration={2} suffix="K" />
+                    </span>
+
+                    <p className="counter__title"> lượt truy cập mỗi tháng</p>
                   </div>
 
                   <div className="single__counter">
@@ -59,6 +72,13 @@ const About = () => {
                     </span>
 
                     <p className="counter__title">lượt truy cập mỗi tháng</p>
+                      <CountUp start={0} end={50} duration={2} suffix="K" />
+                    </span>
+
+                    <p className="counter__title">
+                      {" "}
+                      thành viên của đội ngũ cố vấn
+                    </p>
                   </div>
                 </div>
               </div>

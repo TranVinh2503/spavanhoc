@@ -2,11 +2,10 @@ const cors = require("cors");
 const sqlite3 = require("sqlite3");
 var bodyParser = require("body-parser");
 const path = require("path");
-// const multer = require("multer");
+const multer = require("multer");
 
 // const verifyToken = require("./middleware/auth");
 // const bcrypt = require("bcrypt");
-// const http = require("http");
 // let formidable = require("formidable");
 // let fs = require("fs");
 
@@ -26,7 +25,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Parse application/json
 app.use(bodyParser.json());
 const db = new sqlite3.Database("spavanhoc.db");
-// app.use(express.static('public'))
+
+app.use(express.static(path.join(__dirname, "public")));
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "public/files"); // Lưu file vào thư mục "files"
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.get("/api/hello", (req, res) => {
+  res.send("Hello World!");
+});
 
 app.get("/api/annoucements", (req, res) => {
   db.all(`select * from Announcement`, (err, announcements) => {
@@ -152,7 +167,6 @@ app.post("/api/add/owned_course", (req, res) => {
   );
 });
 
-
 app.get("/api/all/Checking_course", (req, res) => {
   db.all(`select * from Checking_course`, (err, checking_course) => {
     if (!err) {
@@ -179,14 +193,11 @@ app.post("/api/update/status_checking", (req, res) => {
 });
 
 app.get("/api/all/courses_from_server", (req, res) => {
-  db.all(
-    `select * from Course`,
-    (err, courses) => {
-      if (!err) {
-        res.json(courses);
-      }
+  db.all(`select * from Course`, (err, courses) => {
+    if (!err) {
+      res.json(courses);
     }
-  );
+  });
 });
 
 app.get("/api/all/courses", (req, res) => {
@@ -201,11 +212,12 @@ app.get("/api/all/courses", (req, res) => {
     }
   );
 });
+
 app.post("/api/my/courses", (req, res) => {
   db.all(
     `select * from Course
     where Course.id in (select Owned_course.course_id from Owned_course where (Owned_course.user_id_gv =? OR Owned_course.user_id_hs  = ?))`,
-    [req.body.user_id,req.body.user_id],
+    [req.body.user_id, req.body.user_id],
     (err, courses) => {
       if (!err) {
         res.json(courses);
@@ -213,47 +225,90 @@ app.post("/api/my/courses", (req, res) => {
     }
   );
 });
-app.post("/api/allcourse/enroll", (req, res) => {
-  db.run(
-    `insert into Owned_course(course_id, user_id) values(?, ?)`,
-    [req.body.course_id, req.body.user_id],
-    (err) => {
-      if (!err) {
-        res.json("Enrolled");
-      }
+
+app.get("/api/course/:id", (req, res) => {
+  const courseId = req.params.id;
+
+  db.all(`SELECT * FROM Course WHERE id = ?`, courseId, (err, course) => {
+    if (err) {
+      res.status(500).send(err);
+      return;
     }
-  );
-});
-app.post("/api/unenroll", (req, res) => {
-  db.run(
-    `delete from Owned_course where course_id = ? and user_id = ?`,
-    [req.body.course_id, req.body.user_id],
-    (err) => {
-      if (!err) {
-        res.json("Unenrolled");
+    db.all(
+      `SELECT * FROM Owned_course WHERE course_id = ?`,
+      4,
+      (err, ownedCourses) => {
+        if (err) {
+          res.status(500).send(err);
+          return;
+        }
+
+        // Kết quả trả về bao gồm thông tin của khóa học và danh sách các khóa học đã sở hữu
+        const result = {
+          course: course,
+          ownedCourses: ownedCourses,
+        };
+
+        res.json(result);
       }
+    );
+  });
+});
+
+app.post("/api/upload/:id/:id_owned", upload.single("file"), (req, res) => {
+  const idOwned = req.params.id_owned;
+  const file = req.file;
+  if (!file) {
+    res.status(400).send("Vui lòng tải lên một tệp.");
+    return;
+  }
+  const urlFile = `/files/${file.filename}`;
+  db.run(
+    `INSERT INTO File_owned_course (id_owned_course, UrlFile) VALUES (?, ?)`,
+    [idOwned, urlFile],
+    (err) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      res.json(urlFile);
     }
   );
 });
 
-app.get("/api/course/:courseid/quizes", (req, res) => {
-  db.all(
-    `select * from Quiz where course_id = ?`,
-    req.params.courseid,
-    (err, quizes) => {
-      if (!err) {
-        res.json(quizes);
-      }
+app.post(
+  "/api/upload_fixed/:id/:id_owned",
+  upload.single("file"),
+  (req, res) => {
+    const idOwned = req.params.id_owned;
+    const file = req.file;
+    if (!file) {
+      res.status(400).send("Vui lòng tải lên một tệp.");
+      return;
     }
-  );
-});
-app.post("/api/course/:courseid/doquiz/:quizid", (req, res) => {
+    const urlFile = `/files/${file.filename}`;
+    db.run(
+      `UPDATE File_owned_course SET UrlFile_fixed = ? WHERE id_owned_course = ?;
+      `,
+      [urlFile, idOwned],
+      (err) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        res.json(urlFile);
+      }
+    );
+  }
+);
+
+app.get("/api/all/files_owned_course/:id_ownedCourse", (req, res) => {
   db.all(
-    `select * from Question where quiz_id = ?`,
-    req.body.quiz_id,
-    (err, questions) => {
+    `select * from File_owned_course where id_owned_course =?`,
+    req.params.id_ownedCourse,
+    (err, files) => {
       if (!err) {
-        res.json(questions);
+        res.json(files);
       }
     }
   );

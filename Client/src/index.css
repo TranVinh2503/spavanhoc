@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-align: left;
 }
 
 /* section,
@@ -15,6 +16,9 @@ footer {
   padding-top: 70px;
   padding-bottom: 70px;
 } */
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 h1,
 h2,
 h3,

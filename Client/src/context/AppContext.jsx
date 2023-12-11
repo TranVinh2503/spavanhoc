@@ -10,9 +10,10 @@ export const AppProvider = ({ children }) => {
 
   const [courses, SetCourses] = useState([]);
   const [myCourses, SetMyCourses] = useState([]);
+  const domainName = "localhost:8000"
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/all/courses_from_server", {
+    fetch(`http://${domainName}/api/all/courses_from_server`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -43,29 +44,33 @@ export const AppProvider = ({ children }) => {
       const IdFromToken = localStorage.getItem("access-token");
       const result = getUserFromToken(IdFromToken);
       setID(result?.user_id);
-      console.log(result);
       setUser(result);
     };
     fetchAPI();
   }, [id]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/my/courses", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
+    if (user && Object.keys(user).length > 0) {
+      fetch(`http://${domainName}/api/my/courses`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      })
       .then((response) => response.json())
       .then((data) => {
         SetMyCourses(data);
       })
-      .catch(console.error());
+      .catch((error) => {
+        console.error(error);
+      });
+    }
   }, [user]);
+  
 
   return (
-    <AppContext.Provider value={{ user, courses, myCourses }}>
+    <AppContext.Provider value={{ user, courses, myCourses,domainName }}>
       {children}
     </AppContext.Provider>
   );

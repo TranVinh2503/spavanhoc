@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import { AppContext } from "../../context/AppContext";
 
 
-const Courses = () => {
+const MyCourses = () => {
   const { myCourses } = useContext(AppContext);
 
   return (
@@ -37,4 +37,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default MyCourses;

@@ -1,11 +1,13 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, useContext } from "react";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import "./login.css";
+import { AppContext } from "../../context/AppContext";
 
 function Login() {
+  const {domainName} = useContext(AppContext)
   const initialValues = {
     username: "",
     password: "",
@@ -54,7 +56,7 @@ function Login() {
 
   useEffect(() => {
     if (user.user_name !== "" && user.password !== "") {
-      fetch("http://localhost:8000/api/login", {
+      fetch(`http://${domainName}/api/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

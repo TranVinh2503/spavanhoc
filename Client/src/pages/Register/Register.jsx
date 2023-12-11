@@ -67,7 +67,7 @@ function Register() {
 
   useEffect(() => {
     if (user.user_name !== "" && user.email !== "" && user.password !== "") {
-      fetch("http://localhost:8000/api/register", {
+      fetch("spavanhoc.fithanu.edu.vn/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
