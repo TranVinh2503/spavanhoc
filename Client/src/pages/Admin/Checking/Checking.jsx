@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./checking.css";
+import { AppContext } from "../../../context/AppContext";
 const Checking = ({ checking_data }) => {
+  const {domainName} = useContext(AppContext)
   const initialValues = {
     id:"",
     status: "",
@@ -30,7 +32,7 @@ const Checking = ({ checking_data }) => {
   };
   const handleSubmit = () => {
     for (let index = 0; index < checkingCourse.length; index++) {
-      fetch("spavanhoc.fithanu.edu.vn/api/update/status_checking", {
+      fetch(`http://${domainName}/api/update/status_checking`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

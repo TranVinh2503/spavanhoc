@@ -6,36 +6,36 @@ import { AppContext } from "../../context/AppContext";
 
 const navLinks = [
   {
-    display: "Home",
+    display: "Trang Chủ",
     url: "/",
   },
 
   {
-    display: "Courses",
+    display: "Gói chữa bài",
     url: "/courses",
   },
   {
-    display: "Register",
+    display: "Đăng Kí",
     url: "/register",
   },
   {
-    display: "Login",
+    display: "Đăng nhập",
     url: "/login",
   },
 ];
 
 const navLinksLogined = [
   {
-    display: "Home",
+    display: "Trang Chủ",
     url: "/",
   },
 
   {
-    display: "Courses",
+    display: "Các gói",
     url: "/courses",
   },
   {
-    display: "My_course",
+    display: "các gói của tôi",
     url: "/my_course",
   },
 ];
@@ -76,7 +76,7 @@ const Header = () => {
                     {
                       user && 
                       <li  className="nav__item">
-                      <Link  onClick={handleLogout}>Logout</Link>
+                      <Link  onClick={handleLogout}>Đăng Xuất</Link>
                     </li>
                     }
               </ul>

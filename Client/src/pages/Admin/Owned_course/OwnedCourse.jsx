@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./owned_course.css";
+import { AppContext } from "../../../context/AppContext";
 const OwnedCourse = ({ owned_course }) => {
+  const {domainName} = useContext(AppContext)
   const initialValues = {
     ID_course: "",
     Id_teacher: "",
@@ -15,7 +17,7 @@ const OwnedCourse = ({ owned_course }) => {
   };
 
   const handleSubmit = () => {
-    fetch("spavanhoc.fithanu.edu.vn/api/add/owned_course", {
+    fetch(`http://${domainName}/api/add/owned_course`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

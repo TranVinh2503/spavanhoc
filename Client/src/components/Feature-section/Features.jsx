@@ -4,20 +4,20 @@ import "./features.css";
 
 const FeatureData = [
   {
-    title: "Quick Learning",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestias, aperiam doloribus aut sapiente praesentium eos iste dicta amet itaque!",
+    title: "Gửi bài",
+    desc: "Hãy đăng bài văn của bạn lên (chúng tôi khuyến khích bạn hãy gửi file định dạng .docx hoặc .pdf để có kết quả tốt nhất). Phần còn lại hãy để chúng tôi lo!",
     icon: "ri-draft-line",
   },
 
   {
-    title: "All Time Support",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestias, aperiam doloribus aut sapiente praesentium eos iste dicta amet itaque!",
+    title: "Chấm bài",
+    desc: "Cứ từ từ thì khoai sẽ nhừ - bạn sẽ nhận được kết quả sau 24h - 48h tùy thuộc vào độ dài của văn bản, lúc này bài văn của bạn sẽ được chỉ rõ những lỗi đang có, và cách chúng tôi sửa nó sao cho phù hợp nhất với giọng văn của bạn.",
     icon: "ri-discuss-line",
   },
 
   {
-    title: "Certification",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestias, aperiam doloribus aut sapiente praesentium eos iste dicta amet itaque!",
+    title: "Tải bài",
+    desc: "Chúc mừng bạn đã có một bài văn thật hoàn chỉnh, giờ thì hãy nộp ngay cho giáo viên để có một học kỳ thật suôn sẻ nào!",
     icon: "ri-contacts-book-line",
   },
 ];
@@ -25,7 +25,7 @@ const FeatureData = [
 const Features = () => {
   return (
     <section>
-      <Container>
+      <Container style={{ maxHeight: "350px" }}>
         <Row>
           {FeatureData.map((item, index) => (
             <Col lg="4" md="6" key={index}>

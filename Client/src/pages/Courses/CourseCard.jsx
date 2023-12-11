@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import courseImg1 from "../../assests/images/img1.png";
 import courseImg2 from "../../assests/images/img2.png";
 import courseImg3 from "../../assests/images/img3.png";
 
 const CourseCard = (props) => {
   const { course, infor, cost } = props.item;
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [labelButton,setLabelButton] = useState("Thanh Toán")
+
   const randomCourseImg = () => {
     const imgList = [courseImg1, courseImg2, courseImg3];
     const randomIndex = Math.floor(Math.random() * imgList.length);
     return imgList[randomIndex];
+  };
+
+  const handleButtonClick = () => {
+    setIsButtonDisabled(true);
+    setLabelButton("Chờ xử lí")
   };
 
   const imgUrl = randomCourseImg();
@@ -37,7 +45,14 @@ const CourseCard = (props) => {
           </p>
 
           <p className="enroll d-flex align-items-center gap-1">
-            <button className="btn"> Thanh Toán</button>
+            <button
+              className="btn"
+              onClick={handleButtonClick}
+              disabled={isButtonDisabled}
+            >
+              {" "}
+              {labelButton}
+            </button>
           </p>
         </div>
       </div>

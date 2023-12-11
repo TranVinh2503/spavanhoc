@@ -7,7 +7,7 @@ import Courses from "./Course/Courses";
 import { AppContext } from "../../context/AppContext";
 function Admin() {
 
-    const { user } = useContext(AppContext);
+    const { user,domainName } = useContext(AppContext);
     const [users,setUsers] = useState([])
     const [checkingData,setCheckingData] = useState([])
     const [ownedCourse,SetOwnedCourse] = useState([])
@@ -16,7 +16,7 @@ function Admin() {
     
 
     useEffect(() => {
-      fetch("spavanhoc.fithanu.edu.vn/api/all/users", {
+      fetch(`http://${domainName}//api/all/users`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -31,7 +31,7 @@ function Admin() {
     }, []);
 
     useEffect(() => {
-      fetch("spavanhoc.fithanu.edu.vn/api/all/Checking_course", {
+      fetch(`http://${domainName}/api/all/Checking_course`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -46,7 +46,7 @@ function Admin() {
     }, []);
 
     useEffect(() => {
-      fetch("spavanhoc.fithanu.edu.vn/api/all/owned_course", {
+      fetch(`http://${domainName}/api/all/owned_course`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -61,7 +61,7 @@ function Admin() {
     }, []);
 
     useEffect(() => {
-      fetch("spavanhoc.fithanu.edu.vn/api/all/courses_from_server", {
+      fetch(`http://${domainName}/api/all/courses_from_server`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
